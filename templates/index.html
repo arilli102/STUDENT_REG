@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Student Registration</h1>
+
+    <form action="/register" method="post" onsubmit="return validateForm()">
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <input type="email" name="email" id="email" placeholder="Email"><br>
+        <input type="text" name="course" id="course" placeholder="Course"><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <h2>All Students</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Course</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const course = document.getElementById('course').value.trim();
+            if (!name || !email || !course) {
+                alert("Please fill all fields!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

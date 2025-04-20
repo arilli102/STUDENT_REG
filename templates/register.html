@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Student Registration Form</h2>
+    <form action="/submit" method="POST">
+
+      <fieldset>
+        <legend>Basic Information</legend>
+        <label>First Name:</label>
+        <input type="text" name="first_name" required>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" required>
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+        <label>Gender:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+        <label>Nationality:</label>
+        <select name="nationality" required>
+          <option value="">Select</option>
+          <option value="Indian">Indian</option>
+          <option value="Other">Other</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact Information</legend>
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <label>Phone Number:</label>
+        <input type="text" name="phone" pattern="[0-9]{10}" required>
+        <label>Address:</label>
+        <textarea name="address" rows="3" required></textarea>
+        <label>Emergency Contact:</label>
+        <input type="text" name="emergency_contact" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Academic Information</legend>
+        <label>Current Education Level:</label>
+        <select name="education_level" required>
+          <option value="">Select</option>
+          <option value="High School">High School</option>
+          <option value="Undergraduate">Undergraduate</option>
+          <option value="Postgraduate">Postgraduate</option>
+        </select>
+        <label>Previous School/College:</label>
+        <input type="text" name="previous_school">
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
